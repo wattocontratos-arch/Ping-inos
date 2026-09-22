@@ -6,120 +6,67 @@
   <meta name="theme-color" content="#d4147a" />
   <title>ElyStore Web</title>
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/v02.css" />
 </head>
 <body>
   <main class="app-shell">
     <section id="loginView" class="login-layout">
-      <div class="brand-card">
-        <div class="brand-mark">E</div>
-        <div>
-          <p class="eyebrow">ELY STORE</p>
-          <h1>Administración & Cloud</h1>
-          <p>Panel seguro conectado a ElyStore Core. Aquí se visualiza la copia sincronizada; nunca modifica el almacenamiento local del iPhone por sí solo.</p>
-        </div>
-      </div>
-
+      <div class="brand-card"><div class="brand-mark">E</div><div><p class="eyebrow">ELY STORE</p><h1>Administración & Cloud</h1><p>Panel seguro conectado a ElyStore Core. La web nunca reemplaza por sí sola el almacenamiento local del iPhone.</p></div></div>
       <div class="login-card">
         <p class="eyebrow">ELYStore Core</p>
-        <div class="auth-tabs" role="tablist" aria-label="Acceso ElyStore">
-          <button id="signupTab" class="auth-tab active" type="button">Primera vez</button>
-          <button id="loginTab" class="auth-tab" type="button">Ya tengo cuenta</button>
-        </div>
-
-        <form id="signupForm">
-          <h2>Crear cuenta</h2>
-          <p class="form-intro">Usa tu correo personal de acceso y el código de activación asignado por ElyStore.</p>
-          <label>Correo
-            <input id="signupEmail" type="email" autocomplete="email" required placeholder="correo@ejemplo.com" />
-          </label>
-          <label>Contraseña
-            <input id="signupPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Mínimo 8 caracteres" />
-          </label>
-          <label>Confirmar contraseña
-            <input id="signupPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required placeholder="Repite tu contraseña" />
-          </label>
-          <label>Código de activación
-            <input id="activationCode" type="text" autocomplete="one-time-code" required placeholder="ELY-..." />
-          </label>
-          <button id="signupButton" class="primary" type="submit">Crear cuenta y vincular</button>
-          <p id="signupError" class="error" hidden></p>
-          <p id="signupSuccess" class="success" hidden></p>
-          <p class="small-note">El código es de un solo uso. Crear una cuenta no sincroniza, reemplaza ni borra datos del iPhone.</p>
-        </form>
-
-        <form id="loginForm" hidden>
-          <h2>Iniciar sesión</h2>
-          <label>Correo
-            <input id="email" type="email" autocomplete="email" required placeholder="correo@ejemplo.com" />
-          </label>
-          <label>Contraseña
-            <input id="password" type="password" autocomplete="current-password" required placeholder="Tu contraseña" />
-          </label>
-          <button id="loginButton" class="primary" type="submit">Entrar a ElyStore Web</button>
-          <p id="loginError" class="error" hidden></p>
-          <p class="small-note">Acceso por Auth + organización + rol. Tener la URL no da acceso a los datos.</p>
-        </form>
+        <div class="auth-tabs" role="tablist"><button id="signupTab" class="auth-tab active" type="button">Primera vez</button><button id="loginTab" class="auth-tab" type="button">Ya tengo cuenta</button></div>
+        <form id="signupForm"><h2>Crear cuenta</h2><p class="form-intro">Usa tu correo y el código de activación asignado.</p><label>Correo<input id="signupEmail" type="email" autocomplete="email" required placeholder="correo@ejemplo.com" /></label><label>Contraseña<input id="signupPassword" type="password" minlength="8" required placeholder="Mínimo 8 caracteres" /></label><label>Confirmar contraseña<input id="signupPasswordConfirm" type="password" minlength="8" required placeholder="Repite tu contraseña" /></label><label>Código de activación<input id="activationCode" type="text" required placeholder="ELY-..." /></label><button id="signupButton" class="primary" type="submit">Crear cuenta y vincular</button><p id="signupError" class="error" hidden></p><p id="signupSuccess" class="success" hidden></p><p class="small-note">Crear cuenta no sincroniza ni borra datos del iPhone.</p></form>
+        <form id="loginForm" hidden><h2>Iniciar sesión</h2><label>Correo<input id="email" type="email" autocomplete="email" required placeholder="correo@ejemplo.com" /></label><label>Contraseña<input id="password" type="password" autocomplete="current-password" required placeholder="Tu contraseña" /></label><button id="loginButton" class="primary" type="submit">Entrar a ElyStore Web</button><p id="loginError" class="error" hidden></p><p class="small-note">Acceso por Auth + organización + rol + RLS.</p></form>
       </div>
     </section>
 
     <section id="dashboardView" hidden>
       <aside class="sidebar">
-        <div class="sidebar-brand">
-          <div class="brand-mark small">E</div>
-          <div><strong>ElyStore</strong><span>Web</span></div>
-        </div>
+        <div class="sidebar-brand"><div class="brand-mark small">E</div><div><strong>ElyStore</strong><span>Web ERP</span></div></div>
         <nav>
           <button class="nav-item active" data-section="dashboard">Resumen</button>
+          <button class="nav-item" data-section="live">Live</button>
           <button class="nav-item" data-section="ventas">Ventas</button>
           <button class="nav-item" data-section="clientes">Clientes</button>
+          <button class="nav-item" data-section="clasificacion">Clasificación</button>
           <button class="nav-item" data-section="productos">Productos</button>
           <button class="nav-item" data-section="envios">Envíos</button>
+          <button class="nav-item" data-section="liquidaciones">Liquidaciones</button>
+          <button class="nav-item" data-section="direcciones">Direcciones</button>
+          <button class="nav-item" data-section="reportes">Reportes</button>
           <button class="nav-item" data-section="abonos">Abonos</button>
           <button class="nav-item" data-section="cloud">Cloud Sync</button>
           <button class="nav-item" data-section="equipo">Equipo</button>
+          <button class="nav-item" data-section="configuracion">Configuración</button>
+          <button class="nav-item" data-section="seguridad">Seguridad</button>
         </nav>
         <button id="logoutButton" class="logout">Cerrar sesión</button>
       </aside>
 
       <div class="content">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">ELY STORE WEB</p>
-            <h2 id="sectionTitle">Resumen</h2>
-          </div>
-          <div class="user-chip">
-            <div>
-              <strong id="userEmail">—</strong>
-              <span id="userRole">—</span>
-            </div>
-          </div>
-        </header>
-
+        <header class="topbar"><div><p class="eyebrow">ELY STORE WEB · ERP 0.2</p><h2 id="sectionTitle">Resumen</h2></div><div class="user-chip"><div><strong id="userEmail">—</strong><span id="userRole">—</span></div></div></header>
         <div id="syncBanner" class="banner warning">Aún no hay una copia inicial verificada de ElyStore Core.</div>
 
-        <section id="section-dashboard" class="section active-section">
-          <div class="metrics-grid">
-            <article class="metric-card"><span>Ventas</span><strong id="metricVentas">0</strong><small id="metricVentasTotal">$0.00</small></article>
-            <article class="metric-card"><span>Clientes</span><strong id="metricClientes">0</strong><small>registrados</small></article>
-            <article class="metric-card"><span>Paquetes</span><strong id="metricEnvios">0</strong><small id="metricEnviosActivos">0 activos</small></article>
-            <article class="metric-card"><span>Abonos</span><strong id="metricAbonos">0</strong><small id="metricAbonosTotal">$0.00</small></article>
-          </div>
-          <div class="two-col">
-            <article class="panel"><div class="panel-title"><div><p class="eyebrow">Actividad</p><h3>Últimas ventas</h3></div></div><div id="recentSales" class="table-wrap"></div></article>
-            <article class="panel"><div class="panel-title"><div><p class="eyebrow">Cloud</p><h3>Estado de sincronización</h3></div></div><div id="cloudSummary" class="status-list"></div></article>
-          </div>
-        </section>
+        <section id="section-dashboard" class="section active-section"><div class="metrics-grid"><article class="metric-card"><span>Ventas</span><strong id="metricVentas">0</strong><small id="metricVentasTotal">$0.00</small></article><article class="metric-card"><span>Clientes</span><strong id="metricClientes">0</strong><small>registrados</small></article><article class="metric-card"><span>Paquetes</span><strong id="metricEnvios">0</strong><small id="metricEnviosActivos">0 activos</small></article><article class="metric-card"><span>Abonos</span><strong id="metricAbonos">0</strong><small id="metricAbonosTotal">$0.00</small></article></div><div class="two-col"><article class="panel"><div class="panel-title"><div><p class="eyebrow">Actividad</p><h3>Últimas ventas</h3></div></div><div id="recentSales" class="table-wrap"></div></article><article class="panel"><p class="eyebrow">Cloud</p><h3>Estado de sincronización</h3><div id="cloudSummary" class="status-list"></div></article></div></section>
 
-        <section id="section-ventas" class="section"><div class="panel"><div class="panel-title"><div><p class="eyebrow">Operación</p><h3>Ventas sincronizadas</h3></div><input class="search" data-search="venta" placeholder="Buscar venta..." /></div><div id="ventasTable" class="table-wrap"></div></div></section>
-        <section id="section-clientes" class="section"><div class="panel"><div class="panel-title"><div><p class="eyebrow">CRM</p><h3>Clientes</h3></div><input class="search" data-search="cliente" placeholder="Buscar cliente..." /></div><div id="clientesTable" class="table-wrap"></div></div></section>
-        <section id="section-productos" class="section"><div class="panel"><div class="panel-title"><div><p class="eyebrow">Catálogo</p><h3>Productos</h3></div><input class="search" data-search="producto" placeholder="Buscar producto..." /></div><div id="productosTable" class="table-wrap"></div></div></section>
-        <section id="section-envios" class="section"><div class="panel"><div class="panel-title"><div><p class="eyebrow">Logística</p><h3>Paquetes</h3></div><input class="search" data-search="envio" placeholder="Buscar paquete..." /></div><div id="enviosTable" class="table-wrap"></div></div></section>
-        <section id="section-abonos" class="section"><div class="panel"><div class="panel-title"><div><p class="eyebrow">Cobros</p><h3>Abonos</h3></div></div><div id="abonosTable" class="table-wrap"></div></div></section>
+        <section id="section-live" class="section"><article class="panel"><p class="eyebrow">Operación</p><h3>Live Shopping</h3><p class="muted">Productos, clientes, ventas y estado de la operación en vivo.</p><div id="liveSummary"></div></article></section>
+        <section id="section-ventas" class="section"><article class="panel"><div class="panel-title"><div><p class="eyebrow">Operación</p><h3>Ventas sincronizadas</h3></div><input class="search" data-search="venta" placeholder="Buscar venta..." /></div><div id="ventasTable" class="table-wrap"></div></article></section>
+        <section id="section-clientes" class="section"><article class="panel"><div class="panel-title"><div><p class="eyebrow">CRM</p><h3>Clientes</h3></div><input class="search" data-search="cliente" placeholder="Buscar cliente..." /></div><div id="clientesTable" class="table-wrap"></div></article></section>
+        <section id="section-clasificacion" class="section"><article class="panel"><p class="eyebrow">Bodega</p><h3>Clasificación</h3><div id="clasificacionSummary"></div></article></section>
+        <section id="section-productos" class="section"><article class="panel"><div class="panel-title"><div><p class="eyebrow">Catálogo</p><h3>Productos</h3></div><input class="search" data-search="producto" placeholder="Buscar producto..." /></div><div id="productosTable" class="table-wrap"></div></article></section>
+        <section id="section-envios" class="section"><article class="panel"><div class="panel-title"><div><p class="eyebrow">Logística</p><h3>Paquetes</h3></div><input class="search" data-search="envio" placeholder="Buscar paquete..." /></div><div id="enviosTable" class="table-wrap"></div></article></section>
+        <section id="section-liquidaciones" class="section"><article class="panel"><p class="eyebrow">Finanzas</p><h3>Liquidaciones</h3><div id="liquidacionSummary"></div></article></section>
+        <section id="section-direcciones" class="section"><article class="panel"><p class="eyebrow">CRM</p><h3>Direcciones</h3><div id="direccionesSummary"></div></article></section>
+        <section id="section-reportes" class="section"><article class="panel"><p class="eyebrow">Analítica</p><h3>Reportes</h3><div id="reportesSummary"></div></article></section>
+        <section id="section-abonos" class="section"><article class="panel"><p class="eyebrow">Cobros</p><h3>Abonos</h3><div id="abonosTable" class="table-wrap"></div></article></section>
         <section id="section-cloud" class="section"><div class="two-col"><article class="panel"><p class="eyebrow">Core</p><h3>Bootstrap</h3><div id="bootstrapDetail" class="status-list"></div></article><article class="panel"><p class="eyebrow">Dispositivos</p><h3>Equipos conectados</h3><div id="devicesDetail" class="status-list"></div></article></div><article class="panel spaced"><p class="eyebrow">Auditoría</p><h3>Últimas sincronizaciones</h3><div id="runsTable" class="table-wrap"></div></article></section>
-        <section id="section-equipo" class="section"><article class="panel"><p class="eyebrow">Permisos</p><h3>Equipo ElyStore</h3><p class="muted">OWNER administra la organización. ADMIN puede operar y administrar empleados. STAFF tendrá acceso restringido según los módulos que habilitemos.</p><div id="teamDetail" class="status-list"></div></article></section>
+        <section id="section-equipo" class="section"><article class="panel"><p class="eyebrow">Permisos</p><h3>Equipo ElyStore</h3><p class="muted">DUEÑA administra la organización. ADMINISTRADOR puede crear EMPLEADOS. El acceso real lo decide Core.</p><div id="teamTools"></div><div id="teamDetail" class="status-list"></div></article></section>
+        <section id="section-configuracion" class="section"><article class="panel"><p class="eyebrow">Sistema</p><h3>Configuración</h3><div id="configSummary"></div></article></section>
+        <section id="section-seguridad" class="section"><article class="panel"><p class="eyebrow">Protección</p><h3>Seguridad de datos</h3><div id="securitySummary"></div></article></section>
       </div>
     </section>
   </main>
   <script src="/app.js"></script>
+  <script src="/v02.js"></script>
 </body>
 </html>
